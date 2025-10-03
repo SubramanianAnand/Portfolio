@@ -1,4 +1,4 @@
-/*  import google fonts */
+/* import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 *{
@@ -161,7 +161,6 @@ section .title::after{
     filter: brightness(90%);
 }
 
-
 /* home section styling */
 .home{
     display: flex;
@@ -304,19 +303,32 @@ section .title::after{
 }
 
 /* skills section styling */
-
 .skills .title::after{
     content: "what i know";
 }
-.skills .skills-content .column{
-    width: calc(50% - 30px);
+.skills .skills-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.skills .skills-content .left{
+    flex: 1;
+    min-width: 300px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 .skills .skills-content .left .text{
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 .skills .skills-content .left p{
+    margin-bottom: 25px;
+    color: #555;
+    line-height: 1.8;
     text-align: justify;
 }
 .skills .skills-content .left a{
@@ -325,64 +337,120 @@ section .title::after{
     color: #fff;
     font-size: 18px;
     font-weight: 500;
-    padding: 8px 16px;
+    padding: 12px 25px;
     margin-top: 20px;
-    border-radius: 6px;
-    border: 2px solid #833ab4;
+    border-radius: 30px;
+    text-decoration: none;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
+    border: 2px solid #833ab4;
 }
 .skills .skills-content .left a:hover{
     color: #833ab4;
     background: none;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(131, 58, 180, 0.4);
 }
-.skills .skills-content .right .bars{
-    margin-bottom: 15px;
+.skills .skills-content .right{
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    min-width: 300px;
 }
-.skills .skills-content .right .info{
+.skill-category {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+.category-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #2c3e50;
     display: flex;
-    margin-bottom: 5px;
     align-items: center;
-    justify-content: space-between;
 }
-.skills .skills-content .right span{
+.category-title i {
+    margin-right: 10px;
+    font-size: 24px;
+    color: #833ab4;
+}
+.skill-list {
+    list-style: none;
+}
+.skill-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+.skill-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+.skill-name {
+    flex: 1;
     font-weight: 500;
-    font-size: 18px;
+    color: #555;
 }
-.skills .skills-content .right .line{
-    height: 5px;
-    width: 100%;
-    background: lightgrey;
+.skill-level {
+    width: 80px;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
     position: relative;
 }
-.skills .skills-content .right .line::before{
-    content: "";
-    position: absolute;
+.skill-progress {
     height: 100%;
-    left: 0;
+    border-radius: 4px;
+    position: absolute;
     top: 0;
-    background: #833ab4;
+    left: 0;
+    background: linear-gradient(to right, #833ab4, #2ecc71);
 }
-.skills-content .right .html::before{
-    width: 75%;
+.skill-percentage {
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 10px;
+    color: #833ab4;
+    min-width: 35px;
 }
-.skills-content .right .css::before{
-    width: 50%;
-}
-.skills-content .right .js::before{
-    width: 40%;
-}
-.skills-content .right .php::before{
-    width: 70%;
-}
-.skills-content .right .mysql::before{
-    width: 30%;
-}
-.skills-content .right .bootstrap::before{
-    width: 60%;
-}
-.skills-content .right .tailwind::before{
-    width: 80%;
-}
+
+/* Skill percentage levels */
+.skill-item.javascript .skill-progress { width: 85%; }
+.skill-item.python .skill-progress { width: 80%; }
+.skill-item.react .skill-progress { width: 85%; }
+.skill-item.tailwind .skill-progress { width: 90%; }
+.skill-item.bootstrap .skill-progress { width: 80%; }
+.skill-item.materialui .skill-progress { width: 75%; }
+.skill-item.figma .skill-progress { width: 70%; }
+.skill-item.nodejs .skill-progress { width: 80%; }
+.skill-item.fastapi .skill-progress { width: 75%; }
+.skill-item.restapi .skill-progress { width: 85%; }
+.skill-item.reactnative .skill-progress { width: 50%; }
+.skill-item.flutter .skill-progress { width: 40%; }
+.skill-item.provider .skill-progress { width: 35%; }
+.skill-item.mongodb .skill-progress { width: 50%; }
+.skill-item.sql .skill-progress { width: 55%; }
+.skill-item.docker .skill-progress { width: 50%; }
+.skill-item.github .skill-progress { width: 90%; }
+.skill-item.prometheus .skill-progress { width: 20%; }
+.skill-item.opentelemetry .skill-progress { width: 45%; }
+.skill-item.minio .skill-progress { width: 75%; }
+.skill-item.trino .skill-progress { width: 70%; }
+.skill-item.pyiceberg .skill-progress { width: 65%; }
+.skill-item.openshift .skill-progress { width: 70%; }
+.skill-item.observability .skill-progress { width: 75%; }
+.skill-item.rbac .skill-progress { width: 80%; }
+.skill-item.datamesh .skill-progress { width: 70%; }
 
 /* contact section styling */
 .contact .title::after{
@@ -479,6 +547,7 @@ section .title::after{
   color: #833ab4;
   background: none;
 }
+
 /* footer section styling */
 footer{
     background: #111;
@@ -494,7 +563,6 @@ footer span a:hover{
     text-decoration: underline;
 }
 
-
 /* responsive media query start */
 @media (max-width: 1104px) {
     .about .about-content .left img{
@@ -508,6 +576,7 @@ footer span a:hover{
         padding: 0 50px;
     }
 }
+
 @media (max-width: 947px){
     .menu-btn{
         display: block;
@@ -571,6 +640,9 @@ footer span a:hover{
         width: 100%;
         margin-bottom: 35px;
     }
+    .skills .skills-content .right {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 690px) {
@@ -619,5 +691,9 @@ footer span a:hover{
         width: 35px;
         font-size: 23px;
         line-height: 38px;
+    }
+    .skills .skills-content .left,
+    .skills .skills-content .right {
+        min-width: 100%;
     }
 }
